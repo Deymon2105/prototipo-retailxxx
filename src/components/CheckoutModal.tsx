@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   CreditCard,
   MapPin,
-  Clock,
   AlertTriangle,
   Lock,
   Zap,
@@ -31,20 +30,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
   // OTP inputs
   const [otpDigits, setOtpDigits] = useState(['', '', '', '']);
   const [otpSubmitting, setOtpSubmitting] = useState(false);
-
-  // Stopwatch timer for checkout speed (< 28 seconds)
-  const [secondsElapsed, setSecondsElapsed] = useState(0);
-  const startTimeRef = React.useRef(0);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    startTimeRef.current = Date.now();
-    const timer = setInterval(() => {
-      const elapsed = (Date.now() - startTimeRef.current) / 1000;
-      setSecondsElapsed(+elapsed.toFixed(1));
-    }, 100);
-    return () => clearInterval(timer);
-  }, [isOpen]);
 
   // Close on Escape key
   useEffect(() => {
@@ -116,73 +101,42 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 pb-8 bg-slate-950/70 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 pb-8 bg-slate-900/60 backdrop-blur-xs overflow-y-auto"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-auto max-h-[90vh] overflow-y-auto">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-auto max-h-[90vh] overflow-y-auto">
         {/* Top Header */}
-        <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-6 relative">
+        <div className="bg-slate-900 text-white p-6 relative border-b border-slate-800">
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white transition-colors"
+            className="absolute top-5 right-5 p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
             aria-label="Cerrar modal"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs px-2.5 py-0.5 rounded-full font-semibold flex items-center gap-1">
+            <span className="bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-semibold flex items-center gap-1">
               <Zap className="w-3.5 h-3.5 fill-emerald-400 text-emerald-400" />
-              1-Click Checkout Híbrido
+              1-Click Checkout
             </span>
-            <span className="text-blue-200 text-xs flex items-center gap-1 font-mono">
+            <span className="text-slate-400 text-xs flex items-center gap-1 font-mono">
               <Lock className="w-3.5 h-3.5" /> Encriptación AES-256
             </span>
           </div>
 
-          <h2 className="text-2xl font-bold text-white tracking-tight">
-            Autorización de Pago Ultrarrápido
+          <h2 className="text-xl font-bold text-white tracking-tight">
+            Autorización de Pago Seguro
           </h2>
-          <p className="text-blue-100/90 text-sm mt-1">
-            Sin formularios ni portales externos. Confirmación garantizada en segundos.
+          <p className="text-slate-400 text-sm mt-1">
+            Sin formularios ni portales externos. Confirmación inmediata en tu cuenta.
           </p>
-
-          {/* Speed Benchmark Timer Bar */}
-          <div className="mt-4 bg-white/10 backdrop-blur-md rounded-xl p-3 border border-white/15 flex items-center justify-between">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/30 border border-emerald-400/40 flex items-center justify-center text-emerald-300">
-                <Clock className="w-4 h-4" />
-              </div>
-              <div>
-                <div className="text-[11px] text-blue-200 font-medium">
-                  Tiempo de Checkout en Pantalla
-                </div>
-                <div className="text-base font-mono font-bold text-emerald-300">
-                  {secondsElapsed.toFixed(1)}s{' '}
-                  <span className="text-xs text-blue-200 font-normal">
-                    (Meta PMV: &lt; 28s)
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="text-[10px] text-blue-200 uppercase font-semibold">
-                Ahorro vs Convencional
-              </div>
-              <div className="text-xs font-bold text-white bg-blue-700/60 px-2 py-0.5 rounded">
-                -4.2 min ganados
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Saved Tokenized Credentials (Zero friction) */}
         <div className="p-6 space-y-5">
           {/* Credit Card Tokenized Display */}
-          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-4 shadow-lg border border-slate-700 relative overflow-hidden">
-            {/* Card shine effect */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl"></div>
-
+          <div className="bg-slate-900 text-white rounded-2xl p-5 border border-slate-700 shadow-sm relative">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <CreditCard className="w-5 h-5 text-blue-400" />
@@ -190,14 +144,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
                   Tarjeta Tokenizada Guardada
                 </span>
               </div>
-              <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 font-medium">
+              <span className="text-xs bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800 font-medium">
                 Verificada por Banco
               </span>
             </div>
 
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-lg font-mono tracking-widest text-white font-bold">
+                <div className="text-lg font-mono tracking-widest text-white font-semibold">
                   •••• •••• •••• 4821
                 </div>
                 <div className="text-xs text-slate-400 mt-1">
@@ -227,11 +181,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
               <span className="text-slate-400 font-medium mb-1 block">
                 Total a Facturar:
               </span>
-              <div className="text-lg font-bold text-blue-900">
+              <div className="text-lg font-bold text-slate-900 font-sans">
                 ${total.toLocaleString('es-CL')} CLP
               </div>
               {state.freeShippingApplied && (
-                <span className="text-[10px] text-emerald-600 font-semibold bg-emerald-50 px-1.5 py-0.2 rounded">
+                <span className="text-[10px] text-emerald-700 font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
                   Envío Gratis WhatsApp
                 </span>
               )}
@@ -247,7 +201,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
                   Control de Prueba PMV:
                 </div>
                 <div className="text-[11px] text-amber-700">
-                  Simular falla de lector biométrico para probar respaldo OTP
+                  Simular falla de sensor biométrico para probar respaldo OTP
                 </div>
               </div>
             </div>
@@ -266,7 +220,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
           {authMode === 'biometric' && (
             <div className="text-center py-2 space-y-4">
               {biometricError ? (
-                <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl animate-shake">
+                <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl">
                   <div className="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-2">
                     <AlertTriangle className="w-6 h-6" />
                   </div>
@@ -279,21 +233,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
                 </div>
               ) : (
                 <>
-                  <div className="relative w-24 h-24 mx-auto flex items-center justify-center">
-                    {/* Pulsing ring animation */}
+                  <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
                     <div
-                      className={`absolute inset-0 rounded-full border-2 border-blue-500/40 ${
-                        isScanning ? 'animate-ping' : ''
-                      }`}
-                    ></div>
-                    <div
-                      className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-all ${
+                      className={`w-20 h-20 rounded-2xl flex items-center justify-center transition-colors ${
                         isScanning
-                          ? 'bg-blue-600 text-white shadow-lg ring-4 ring-blue-400/40'
-                          : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                          ? 'bg-blue-600 text-white ring-2 ring-blue-500 ring-offset-2'
+                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       }`}
                     >
-                      <Fingerprint className={`w-12 h-12 ${isScanning ? 'animate-pulse' : ''}`} />
+                      <Fingerprint className="w-11 h-11" />
                     </div>
                   </div>
 
@@ -312,7 +260,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose })
                     type="button"
                     disabled={isScanning}
                     onClick={handleBiometricAuth}
-                    className="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.99] transition-all shadow-md shadow-blue-600/25 flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-colors shadow-sm flex items-center justify-center gap-2"
                   >
                     <Fingerprint className="w-5 h-5" />
                     <span>

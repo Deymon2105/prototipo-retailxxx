@@ -21,37 +21,31 @@ export const SuccessView: React.FC = () => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
       {/* Celebration Header */}
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-700 to-blue-900 text-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-        {/* Glow decoration */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-
+      <div className="bg-slate-900 text-white rounded-2xl p-7 border border-slate-800 shadow-sm relative overflow-hidden">
         <div className="relative z-10 flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
-          <div className="w-20 h-20 rounded-3xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white flex-shrink-0 shadow-lg">
-            <CheckCircle className="w-12 h-12 text-emerald-300" />
+          <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0">
+            <CheckCircle className="w-9 h-9" />
           </div>
 
           <div className="flex-1">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
-              <span className="bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full backdrop-blur-sm border border-white/20">
+              <span className="bg-emerald-950 text-emerald-300 border border-emerald-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">
                 1-Click Checkout Completado
-              </span>
-              <span className="text-emerald-200 text-xs font-mono font-semibold">
-                Tiempo de checkout: 4.8s
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               ¡Pedido Confirmado con Éxito!
             </h1>
-            <p className="text-blue-100 text-sm mt-1 max-w-xl">
+            <p className="text-slate-300 text-sm mt-1 max-w-xl">
               Hemos procesado tu compra mediante tokenización segura. Sin esperas bancarias ni formularios adicionales.
             </p>
 
             {/* Club Points Highlighted Badge */}
-            <div className="mt-4 inline-flex items-center gap-2.5 bg-amber-400/20 border border-amber-300/40 text-amber-100 px-4 py-2 rounded-xl text-xs font-semibold">
-              <Award className="w-4 h-4 text-amber-300 flex-shrink-0" />
+            <div className="mt-4 inline-flex items-center gap-2.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 px-4 py-2 rounded-xl text-xs font-medium">
+              <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
               <span>
-                ¡Felicitaciones! Has acumulado <strong>+{orderDetails.clubPoints} Puntos Club Retail</strong> en tu cuenta.
+                Has acumulado <strong>+{orderDetails.clubPoints} Puntos Club Retail</strong> en tu cuenta.
               </span>
             </div>
           </div>
@@ -60,14 +54,14 @@ export const SuccessView: React.FC = () => {
           <div className="flex sm:flex-col gap-2">
             <button
               onClick={() => setShowReceiptModal(true)}
-              className="px-4 py-2.5 rounded-xl bg-white text-slate-800 text-xs font-bold hover:bg-blue-50 transition-colors shadow-sm flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl bg-white text-slate-900 text-xs font-semibold hover:bg-slate-100 transition-colors shadow-xs flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-blue-600" />
               <span>Ver Comprobante</span>
             </button>
             <button
               onClick={resetDemo}
-              className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold backdrop-blur-md transition-colors border border-white/20 flex items-center gap-2"
+              className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors border border-slate-700 flex items-center gap-2"
             >
               <RotateCcw className="w-4 h-4" />
               <span>Reiniciar Demo</span>

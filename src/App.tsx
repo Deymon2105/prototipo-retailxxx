@@ -41,10 +41,10 @@ const MainContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100/70 flex flex-col selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 flex flex-col selection:bg-blue-600 selection:text-white">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 max-w-md bg-slate-900 text-white px-5 py-4 rounded-2xl shadow-2xl border border-slate-700/80 flex items-start gap-3 animate-in slide-in-from-top-4 duration-300">
+        <div className="fixed top-20 right-6 z-50 max-w-md bg-slate-900 text-white px-5 py-4 rounded-xl shadow-lg border border-slate-800 flex items-start gap-3">
           <div className="w-8 h-8 rounded-full bg-blue-600/30 text-blue-400 flex items-center justify-center flex-shrink-0 mt-0.5">
             <CheckCircle2 className="w-5 h-5 text-emerald-400" />
           </div>

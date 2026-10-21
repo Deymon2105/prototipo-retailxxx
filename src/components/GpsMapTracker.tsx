@@ -45,9 +45,8 @@ export const GpsMapTracker: React.FC<GpsMapTrackerProps> = ({
       {/* Map Header with Live Status */}
       <div className="bg-slate-900 text-white px-5 py-4 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="relative flex items-center justify-center">
-            <span className="w-3.5 h-3.5 bg-emerald-500 rounded-full animate-ping absolute"></span>
-            <span className="w-3 h-3 bg-emerald-500 rounded-full relative"></span>
+          <div className="flex items-center justify-center">
+            <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -260,13 +259,11 @@ export const GpsMapTracker: React.FC<GpsMapTrackerProps> = ({
             }}
           >
             <div className="relative flex flex-col items-center">
-              {/* Radar pulse wave */}
-              <div className="w-12 h-12 rounded-full bg-emerald-500/30 animate-ping absolute -top-1"></div>
-              <div className="bg-emerald-600 text-white p-2 rounded-full shadow-xl border-2 border-white ring-4 ring-emerald-500/40 flex items-center justify-center">
+              <div className="bg-emerald-600 text-white p-2 rounded-full shadow-md border-2 border-white flex items-center justify-center">
                 <Navigation className="w-5 h-5 rotate-45" />
               </div>
-              <div className="mt-1.5 bg-slate-900/95 text-emerald-300 text-[11px] font-mono px-2 py-0.5 rounded-md shadow-md border border-emerald-500/40 flex items-center gap-1.5 whitespace-nowrap">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <div className="mt-1.5 bg-slate-900/95 text-emerald-300 text-[11px] font-mono px-2 py-0.5 rounded-md shadow-sm border border-slate-700 flex items-center gap-1.5 whitespace-nowrap">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 <span>Carlos M. (ETA: {etaMinutes} min)</span>
               </div>
             </div>
@@ -289,7 +286,7 @@ export const GpsMapTracker: React.FC<GpsMapTrackerProps> = ({
         </div>
 
         {/* Floating live ETA overlay badge in bottom-right */}
-        <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 p-3 rounded-xl shadow-2xl text-white flex items-center gap-3">
+        <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 p-3 rounded-xl shadow-md text-white flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
             <Clock className="w-5 h-5" />
           </div>
@@ -379,7 +376,7 @@ export const GpsMapTracker: React.FC<GpsMapTrackerProps> = ({
                   activeStage > 2
                     ? 'bg-emerald-100 text-emerald-600'
                     : activeStage === 2
-                    ? 'bg-blue-600 text-white animate-pulse'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-slate-200 text-slate-400'
                 }`}
               >
@@ -455,7 +452,7 @@ export const GpsMapTracker: React.FC<GpsMapTrackerProps> = ({
         {/* Courier Details Card */}
         <div className="mt-5 p-4 bg-white rounded-xl border border-slate-200/90 flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 text-white font-bold flex items-center justify-center text-base shadow-sm ring-2 ring-slate-100">
+            <div className="w-12 h-12 rounded-full bg-slate-800 text-white font-semibold flex items-center justify-center text-base shadow-xs border border-slate-700">
               CM
             </div>
             <div>

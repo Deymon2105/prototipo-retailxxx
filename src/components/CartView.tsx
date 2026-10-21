@@ -41,14 +41,14 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Top Value Proposition Banner */}
-      <div className="mb-6 bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-950 text-white p-5 rounded-2xl shadow-xl flex flex-wrap items-center justify-between gap-4">
+      <div className="mb-6 bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 shadow-sm flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-600/50 flex items-center justify-center text-blue-200">
+          <div className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-200">
             <Store className="w-5 h-5 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase font-bold tracking-wider text-blue-300">
+              <span className="text-xs uppercase font-bold tracking-wider text-slate-300">
                 Micro-Fulfillment Providencia
               </span>
               <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
@@ -59,7 +59,7 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 bg-white/10 px-3.5 py-1.5 rounded-xl border border-white/15 text-xs text-blue-100">
+        <div className="flex items-center gap-2 bg-slate-800 px-3.5 py-1.5 rounded-xl border border-slate-700 text-xs text-slate-200">
           <Clock className="w-4 h-4 text-emerald-400" />
           <span>Promesa horaria: <strong>Mañana 11:00 - 13:00 hrs</strong></span>
         </div>
@@ -199,16 +199,16 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
             </div>
 
             {/* Guaranteed Delivery Window Dynamic Banner */}
-            <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-emerald-50 rounded-2xl p-4 border border-blue-200/80 flex items-center justify-between gap-3">
+            <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center flex-shrink-0 shadow-xs">
                   <Truck className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-blue-900">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-700">
                     Promesa de Entrega Exacta
                   </div>
-                  <div className="text-sm font-extrabold text-slate-900">
+                  <div className="text-sm font-bold text-slate-900">
                     Despacho desde Tienda Providencia: Mañana 11:00 - 13:00 hrs
                   </div>
                   <div className="text-[11px] text-slate-500">
@@ -216,7 +216,7 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
                   </div>
                 </div>
               </div>
-              <span className="hidden sm:inline-block bg-white text-blue-700 text-xs font-bold px-3 py-1.5 rounded-lg border border-blue-200 shadow-sm">
+              <span className="hidden sm:inline-block bg-white text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 shadow-xs">
                 Ventana 2 hrs
               </span>
             </div>
@@ -322,7 +322,7 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="text-3xl font-extrabold text-blue-950 font-mono tracking-tight">
+                  <span className="text-3xl font-bold text-slate-900 tracking-tight">
                     ${total.toLocaleString('es-CL')}
                   </span>
                   <span className="text-xs text-slate-500 ml-1">CLP</span>
@@ -343,9 +343,9 @@ export const CartView: React.FC<CartViewProps> = ({ onOpenCheckout }) => {
               <button
                 type="button"
                 onClick={onOpenCheckout}
-                className="w-full py-4 px-6 rounded-2xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:scale-[0.99] transition-all shadow-lg shadow-blue-600/30 flex items-center justify-center gap-2 text-base group"
+                className="w-full py-4 px-6 rounded-2xl font-bold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-colors shadow-sm flex items-center justify-center gap-2 text-base group"
               >
-                <Zap className="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform" />
+                <Zap className="w-5 h-5 fill-white text-white" />
                 <span>Continuar a Pago Rápido 1-Click</span>
                 <ArrowRight className="w-5 h-5 ml-1" />
               </button>

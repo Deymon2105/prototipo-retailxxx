@@ -52,7 +52,7 @@ export const DemoHeader: React.FC = () => {
       <div className="bg-slate-900 text-slate-200 px-4 py-2 text-xs flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 font-bold tracking-tight text-white">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-blue-500"></span>
             <span>RETAIL XXX</span>
             <span className="text-[10px] text-blue-400 font-mono font-normal bg-blue-950 px-1.5 py-0.5 rounded border border-blue-800">
               PMV Tasa de Abandono
@@ -86,7 +86,7 @@ export const DemoHeader: React.FC = () => {
 
       {/* Explanatory Dropdown */}
       {showExplanation && (
-        <div className="bg-slate-950 text-slate-200 p-4 border-b border-slate-800 text-xs animate-in slide-in-from-top-2">
+        <div className="bg-slate-950 text-slate-200 p-4 border-b border-slate-800 text-xs">
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-3 bg-slate-900 rounded-xl border border-slate-800">
               <span className="font-bold text-blue-400 block mb-1">
